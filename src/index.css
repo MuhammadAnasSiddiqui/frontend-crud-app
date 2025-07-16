@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 0.3px #ffb86f; /* Replace with your desired stroke color */
+}
+
+.gradient-border-height {
+  border-width: 3.05px;
+  border-style: solid;
+  border-image: linear-gradient(
+    240deg,
+    #ecd8bd 0%,
+    rgba(236, 216, 189, 0) 42.28%
+  );
+  border-image-slice: 11;
+}
+
+.gradient-border-weight {
+  border-width: 3.05px;
+  border-style: solid;
+  border-image: linear-gradient(
+    20deg,
+    #ecd8bd 0%,
+    rgba(236, 216, 189, 0) 22.28%
+  );
+  border-image-slice: 11;
+}
+
+/* Scrollbar Track (Dark Mode) */
+::-webkit-scrollbar {
+  width: 4px; /* Slightly thicker for better visibility in dark mode */
+  height: 8px;
+}
+
+/* Scrollbar Handle - Dark Gold with Subtle Glow */
+::-webkit-scrollbar-thumb {
+  background: rgba(
+    199,
+    140,
+    78,
+    0.6
+  ); /* Secondary color (#C78C4E) at 60% opacity */
+  border-radius: 150px;
+  border: 1px solid rgba(255, 184, 111, 0.2); /* Soft gold border for depth */
+}
+
+/* Handle on Hover - Brighter Gold */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(
+    255,
+    184,
+    111,
+    0.8
+  ); /* Primary gold (#FFB86F) at 80% opacity */
+  border-color: rgba(255, 184, 111, 0.4);
+}
+
+/* Optional: Dark Scrollbar Track (Subtle Gradient) */
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to right,
+    rgba(30, 30, 30, 0.1),
+    rgba(40, 40, 40, 0.3)
+  ); /* Dark gradient for depth */
+  border-radius: 150px;
+}
+
+/* Corner (where vertical/horizontal scrollbars meet) */
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.5); /* Darkens the corner for cohesion */
+}
+
+/* Chrome, Edge, Safari */
+.custom-black-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.custom-black-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.7); /* Black thumb */
+  border-radius: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle edge */
+}
+
+.custom-black-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.9); /* Darker on hover */
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-black-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 150px;
+}
+
+.custom-black-scrollbar::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Change left and right arrow icon color */
+.rdp-chevron {
+  fill: #1a1a1a9c !important; /* Apply your custom color */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: all 10000000s;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+/* Dark Theme Scrollbar: black-b-scroll */
+.black-b-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 6px;
+}
+.black-b-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 150px;
+}
+.black-b-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.black-b-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.black-b-scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
