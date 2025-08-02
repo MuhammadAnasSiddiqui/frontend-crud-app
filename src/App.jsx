@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthLayout, UserDashboardLayout } from "./layout";
+import { HomeScreen } from "./views";
 
 const App = () => {
   const isAuthenticated = false; // Replace with actual authentication logic
@@ -9,7 +10,7 @@ const App = () => {
         exact
         path="/*"
         element={
-          isAuthenticated ? <Navigate to="/user" replace /> : "aa"
+          isAuthenticated ? <Navigate to="/user" replace /> : <HomeScreen />
         }
       />
       <Route
