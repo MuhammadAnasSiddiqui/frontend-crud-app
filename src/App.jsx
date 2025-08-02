@@ -1,9 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthLayout, UserDashboardLayout } from "./layout";
 import { HomeScreen } from "./views";
+import { useAuthContext } from "./context/AuthContext";
 
 const App = () => {
-  const isAuthenticated = false; // Replace with actual authentication logic
+  const { isAuthenticated } = useAuthContext();
+
   return (
     <Routes>
       <Route

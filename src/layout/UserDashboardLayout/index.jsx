@@ -1,11 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+import { Navbar } from "../../components";
 
 const UserDashboardLayout = () => {
   return (
-    <Routes>
-      <Route path="/*" element={"user dashboard"} />
-      <Route path="/profile" element={"profile"} />
-    </Routes>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/*" element={"user dashboard"} />
+        <Route path="/profile" element={"profile"} />
+      </Routes>
+    </div>
   );
 };
 
