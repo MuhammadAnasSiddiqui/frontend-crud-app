@@ -1,5 +1,5 @@
 // AUTH SCREENS
-export { LoginScreen } from "./Auth";
+export { LoginScreen, RegisterScreen } from "./Auth";
 
 //  Landing Screen
 export { HomeScreen } from "./Landing";
