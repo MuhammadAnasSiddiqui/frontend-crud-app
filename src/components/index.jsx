@@ -1,5 +1,5 @@
 // AUTH COMPONENTS
-export { Login, Register } from "./Auth";
+export { LoginForm, RegisterForm } from "./Auth";
 
 // COMMON COMPONENTS
-export { Navbar } from "./common";
+export { Navbar, CustomInput } from "./common";
