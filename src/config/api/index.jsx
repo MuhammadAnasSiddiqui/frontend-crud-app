@@ -2,42 +2,36 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://dummyjson.com", // Replace with your API base URL
-  timeout: 1000,
+  baseURL: "http://localhost:3002",
+  timeout: 10000, // increased from 1000 — 1s is too short for many networks
   headers: { "Content-Type": "application/json" },
 });
 
-// Add a request interceptor
+// request interceptor — arrow functions
 axiosInstance.interceptors.request.use(
-  function (config) {
-    // Do something before the request is sent
-    const token = localStorage.getItem("authToken"); // Retrieve auth token from localStorage
-    if (token) {
+  (config) => {
+    const token = localStorage.getItem("authToken");
+    if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  function (error) {
-    // Handle the error
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Add a response interceptor
+// response interceptor — arrow functions
 axiosInstance.interceptors.response.use(
-  function (response) {
-    // Do something with the response data
-    console.log("Response:", response);
+  (response) => {
+    // Optional: return response.data to simplify callers:
+    // return response.data;
     return response;
   },
-  function (error) {
-    // Handle the response error
-    if (error.response && error.response.status === 401) {
-      // Handle unauthorized error
-      console.error("Unauthorized, logging out...");
-      // Perform any logout actions or redirect to login page
-    }
-    return Promise.reject(error);
+  (error) => {
+    // if (error.response?.status === 401) {
+    //   console.error("Unauthorized — consider redirecting to login.");
+    //   // (optional) perform logout / redirect
+    // }
+    return Promise.reject(error.message);
   }
 );
 
