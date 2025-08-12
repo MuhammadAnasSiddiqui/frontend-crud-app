@@ -1,12 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
 import { Navbar } from "../../../components";
-import axiosInstance from "../../../config/api";
 import { useEffect, useState } from "react";
+import api from "../../../config/api";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const { mutate: fetchAllPosts, isPending: fetchingAllPosts } = useMutation({
-    mutationFn: () => axiosInstance.get("/get-all-posts"),
+    mutationFn: () => api.getAllPosts(),
     onSuccess: ({ data }) => {
       setPosts(data?.data);
       console.log("🚀 ~ Home ~ data:", data);
