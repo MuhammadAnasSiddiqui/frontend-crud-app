@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { CustomInput } from "../../common";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import { useAuthContext } from "../../../context/AuthContext";
 
 const LoginForm = () => {
+  const { login, loggingIn } = useAuthContext();
   const validationSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address")
@@ -15,6 +17,7 @@ const LoginForm = () => {
   });
   const handleSubmit = (values) => {
     console.log("Submitted values:", values);
+    login(values);
   };
   return (
     <div className="bg-gray-50">
