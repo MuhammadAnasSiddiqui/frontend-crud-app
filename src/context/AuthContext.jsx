@@ -1,6 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
 import { useContext, createContext, useState, useEffect } from "react";
-import axiosInstance from "../config/api";
 import api from "../config/api";
 
 const initialAuthState = {
