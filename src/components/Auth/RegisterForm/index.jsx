@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CustomInput } from "../../common";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { useAuthContext } from "../../../context/AuthContext";
 
 const RegisterForm = () => {
   const { register, registering } = useAuthContext();
