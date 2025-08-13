@@ -64,7 +64,7 @@ const Home = () => {
             {posts?.map((post) => (
               <div
                 key={post._id}
-                className="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-300 overflow-hidden flex flex-col  border border-gray-200"
+                className="rounded-lg shadow-card hover:shadow-glow transition-shadow duration-300 overflow-hidden flex flex-col border border-primary-dark"
               >
                 {/* Image */}
                 <div className="h-96 w-full overflow-hidden">
@@ -77,17 +77,17 @@ const Home = () => {
 
                 {/* Content */}
                 <div className="p-4 flex flex-col flex-1">
-                  <h2 className="text-lg font-semibold text-gray-800 truncate">
+                  <h2 className="text-lg font-semibold text-primary truncate">
                     {post?.title}
                   </h2>
-                  <p className="mt-2 text-sm text-gray-600 line-clamp-3">
+                  <p className="mt-2 text-sm text-primary line-clamp-3">
                     {post?.description}
                   </p>
 
                   {/* Button */}
                   <div className="mt-auto pt-4">
                     <button
-                      className="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-md text-sm"
+                      className="w-full bg-accent hover:bg-accent-light text-neutral-white py-2 px-4 rounded-md text-sm transition-colors"
                       onClick={() => console.log("Open post", post._id)}
                     >
                       Read More
