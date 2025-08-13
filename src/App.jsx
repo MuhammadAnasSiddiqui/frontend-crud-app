@@ -4,10 +4,26 @@ import { HomeScreen } from "./views";
 import { useAuthContext } from "./context/AuthContext";
 
 const App = () => {
-  const { isAuthenticated } = useAuthContext();
+  const { isAuthenticated, splashLoading } = useAuthContext();
 
-  return (
+  return splashLoading ? (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
+      {/* App Name / Logo */}
+      <h1 className="text-4xl font-bold text-red-500 mb-6 animate-pulse">
+        MyApp
+      </h1>
+
+      {/* Spinner */}
+      <div className="w-10 h-10 border-4 border-white border-t-red-500 rounded-full animate-spin"></div>
+
+      {/* Tagline */}
+      <p className="mt-4 text-gray-400 text-sm tracking-wide">
+        Preparing your experience...
+      </p>
+    </div>
+  ) : (
     <Routes>
+      <Route path="/" element={<HomeScreen />} />
       <Route
         exact
         path="/*"

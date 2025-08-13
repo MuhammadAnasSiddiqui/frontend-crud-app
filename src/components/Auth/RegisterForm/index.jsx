@@ -4,6 +4,8 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 const RegisterForm = () => {
+  const { register, registering } = useAuthContext();
+
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(2, "Name must be at least 2 characters")
@@ -20,6 +22,7 @@ const RegisterForm = () => {
 
   const handleSubmit = (values) => {
     console.log("Submitted values:", values);
+    register(values);
   };
 
   return (
@@ -77,7 +80,7 @@ const RegisterForm = () => {
                       type="submit"
                       className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer"
                     >
-                      Create Account
+                      {registering ? "Creating..." : "Create Account"}
                     </button>
                   </div>
                   <p className="text-slate-900 text-sm !mt-6 text-center">
