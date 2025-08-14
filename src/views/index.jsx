@@ -5,4 +5,4 @@ export { LoginScreen, RegisterScreen } from "./Auth";
 export { HomeScreen } from "./Landing";
 
 // User Dashboard Screens
-// export { UserDashboardScreen } from "./UserDashboard";
+export { DashboardScreen } from "./UserDashboard";
