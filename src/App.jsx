@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthLayout, UserDashboardLayout } from "./layout";
 import { HomeScreen } from "./views";
 import { useAuthContext } from "./context/AuthContext";
+import ChatLayout from "./layout/ChatLayout";
 
 const App = () => {
   const { isAuthenticated, splashLoading } = useAuthContext();
@@ -47,6 +48,14 @@ const App = () => {
           ) : (
             <Navigate to="/" replace />
           )
+        }
+      />
+
+      <Route
+        exact
+        path="/chat/*"
+        element={
+          isAuthenticated ? <ChatLayout /> : <Navigate to="/auth" replace />
         }
       />
     </Routes>

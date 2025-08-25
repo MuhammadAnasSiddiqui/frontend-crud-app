@@ -4,6 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        chat: {
+          background: "#0f172a", // dark slate
+          sender: "#3b82f6", // blue
+          receiver: "#1e293b", // dark gray
+          text: "#ffffff",
+        },
         primary: {
           DEFAULT: "#0d0d0d", // main dark background
           light: "#1a1a1a", // cards & surfaces
