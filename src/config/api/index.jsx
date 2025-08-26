@@ -2,6 +2,7 @@
 import axios from "axios";
 import landingApis from "./landingApi";
 import authApis from "./authApi";
+import chatApis from "./chatApi";
 
 const createBackendServer = () => {
   const axiosInstance = axios.create({
@@ -13,7 +14,7 @@ const createBackendServer = () => {
   // request interceptor — arrow functions
   axiosInstance.interceptors.request.use(
     (config) => {
-      const token = localStorage.getItem("authToken");
+      const token = localStorage.getItem("auth_token");
       if (token && config.headers) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -41,6 +42,7 @@ const createBackendServer = () => {
   return {
     ...landingApis(axiosInstance),
     ...authApis(axiosInstance),
+    ...chatApis(axiosInstance),
   };
 };
 
