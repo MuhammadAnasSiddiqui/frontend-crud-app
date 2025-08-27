@@ -7,12 +7,15 @@ import api from "../../config/api";
 const Chats = () => {
   const [activeUser, setActiveUser] = useState(null);
   const [conversations, setConversations] = useState([]);
+  console.log("🚀 ~ Chats ~ conversations:", conversations);
 
   const { mutate: fetchConversations, isPending: fetchingConversations } =
     useMutation({
       mutationFn: () => api.conversations(),
       onSuccess: ({ data }) => {
-        console.log("Message sent:", data);
+        if (data?.status) {
+          setConversations(data?.data);
+        }
       },
       onError: (error) => {
         console.log("🚀 ~ Chats ~ error:", error);
@@ -26,7 +29,11 @@ const Chats = () => {
   return (
     <div className="flex h-[calc(100vh-64px)]">
       {/* 64px = Navbar height */}
-      <ChatSidebar onSelectUser={setActiveUser} activeUserId={activeUser?.id} />
+      <ChatSidebar
+        conversations={conversations}
+        onSelectUser={setActiveUser}
+        activeUserId={activeUser?._id}
+      />
       <ChatBox activeUser={activeUser} />
     </div>
   );
